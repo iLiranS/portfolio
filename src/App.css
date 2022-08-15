@@ -9,7 +9,7 @@
     font-weight: 400;
 }
 *::selection{
-    background-color: rgb(236, 108, 108);
+    background-color: #ec6c6c;
 }
 
 body{
