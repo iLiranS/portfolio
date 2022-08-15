@@ -1,0 +1,51 @@
+.mainContainer{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    place-items: start;
+    right: 10px;
+}
+.mainContainer svg{
+    width: 80px;
+    position: relative;
+    left: 0;
+    height: 80px;
+
+}
+
+.mainContainer svg path {
+    fill:rgb(236,108,108);
+    stroke: white;
+    stroke-width: 5;
+    stroke-dasharray: 913;
+    stroke-dashoffset: 0;
+    animation: dash 10s linear forwards infinite;
+  }
+  @keyframes dash {
+    0% {
+      stroke-dashoffset: 913;
+      stroke: rgb(243, 232, 232);
+
+    }
+    40%{
+        stroke-dashoffset: 1826;
+    }
+    50%{
+        stroke-dashoffset: 1826;
+    }
+    80%{
+        stroke-dashoffset: 2739;
+    }
+    100%{
+        stroke-dashoffset: 2739;
+        
+        stroke: rgb(253, 232, 232)
+    }
+  }
+  @media screen and (max-width : 700px) {
+    .mainContainer svg{
+        width: 50px;
+        height: 50px;
+    }
+    
+}

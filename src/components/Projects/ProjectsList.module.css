@@ -1,0 +1,223 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 5rem;
+    height: 100vh;
+    justify-content: center;
+    overflow: hidden;
+    overflow-y: auto;
+    scroll-snap-align: center;
+    width: 100%;
+    align-items: center;
+}
+.projects{
+    text-align: center;
+    width: fit-content;
+    position: absolute;
+    z-index: 1;
+    top: 1vh;
+    text-transform: uppercase;
+}
+:root{
+    --width : 80vw;
+}
+
+.tvContainer{
+    align-self: center;
+    border-radius: 20px;
+    width: var(--width);
+    position: relative;
+    justify-content: center;
+}
+/* Television visual starts  */
+
+
+.legsHolder{
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    bottom: 1.5rem;
+    z-index: -1;
+    width: 100%;
+    height: 20px;
+    transform: translateX(-50%);
+}
+.legsHolder::after, .legsHolder::before{
+    content: '';
+    position: absolute;
+    left: 20%;
+    transform: translateX(-50%);
+    height: 5rem;
+    width: 0.2rem;
+    transform-origin: bottom;
+    background-color: rgb(225, 223, 196);
+    top: -5rem;
+    transform: rotate(-135deg);
+}
+.legsHolder::before{
+   left: 80%;
+   transform: rotate(135deg);
+
+}
+/* Television visual ends */
+
+.eachSlide > div {
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    justify-content: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    border: 2px solid rgb(225, 223, 196);
+    aspect-ratio: 16/9;
+    width: var(--width);
+  }
+.eachSlide div:hover{
+    filter: none;
+    border-radius: 20px;
+}
+.eachSlide img{
+    border-radius: 20px;
+}
+
+  
+  .eachSlide span {
+    padding: 20px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(250, 235, 215);
+    display: none;
+    
+}
+
+.eachSlide a{
+    text-decoration: none;
+    color: black;
+}
+.eachSlide{
+    position: relative;
+}
+
+.eachSlide ::after{
+    content: 'Click for more';
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    font-size: larger;
+    color: white;
+    display: grid;
+    place-items: center;
+    left: 0;
+    animation: 4s infinite ease-in-out Reveal ;
+}
+.eachSlide:hover ::after{
+display: grid;
+}
+
+
+@keyframes Reveal {
+    0%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0;
+    }
+    70%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.siteInfo{
+    position: absolute;
+    top: 0;
+    height: fit-content;
+}
+
+
+.indicator {
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    user-select: none;
+    text-align: center;
+    width: 10px;
+    top: -1rem;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    border: 1px #666 solid;
+    margin: 0;
+  }
+  .indicator:nth-child(2){
+    margin: 0 0.5rem;
+  }
+  .indicator:not(:nth-child(2)){
+    top: -0.5rem;
+  }
+
+  .number{
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    font-size: small;
+    color: black;
+  }
+  
+  .indicator:active {
+    color: #fff ;
+    background: #666;
+  
+  }
+.hideView{
+    opacity: 0;
+    
+    transition: 0.5s ease;
+}
+.activeView{
+    opacity: 1;
+    transition: 1s ease;
+}
+.pop{
+    opacity: 1;
+    transform-origin: bottom;
+    transform: translateX(0);
+    transition: 1s ease-in-out;
+}
+.disPop{
+    opacity: 0;
+    transform: translateX(100%);
+    transition: 0.5s ease;
+}
+
+
+
+
+
+@media screen and (max-width : 800px) {
+    :root{
+     --width : 95vw;
+    }
+  
+     .legsHolder::after , .legsHolder::before{
+         height: 3.7rem;
+         
+     }
+     .toNextSection{
+        margin-bottom: 5.5rem;
+     }
+   
+ 
+ }
+ @media  (max-height : 700px) and (min-width : 700px) {
+     :root{
+         --width:90vh;
+     }
+ }

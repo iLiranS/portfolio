@@ -1,0 +1,172 @@
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    scroll-snap-align: start;
+    place-items: center;
+    gap: 0;
+}   
+.goalsInfo{
+    position: relative;
+    width: 50%;
+    text-align: center;
+}
+.svgContainer{
+     height: 400px;
+    width: 100%;
+    justify-content: center;
+    background-color: rgb(225, 223, 196);
+    overflow: hidden;
+    position: relative;
+    display: grid;
+    grid-auto-flow: column;
+    grid-gap: 0.5rem;
+}
+.lineSvg{
+    height: 100%;
+    opacity: 0;
+    min-height: 100%;
+    margin-top: 1.5rem;
+}
+.lineSvg path{
+   fill: #1d1d1d;
+   min-height: 100%;
+}
+.lineSvg path:nth-child(1), .lineSvg path:nth-child(2){
+    fill: rgb(236, 108, 108);
+}
+.textSection{
+    display: flex;
+    align-self: center;
+    margin-top: 1.5rem;
+    height: 86%;
+    color: #1d1d1d;
+    opacity: 0;
+    align-self: start;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.flex{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    color: #1d1d1d;
+}
+.done{
+    color: rgb(236, 108, 108);
+    font-size: larger;
+}
+.bigSvg{
+    font-size: 12rem;
+    opacity: 0;
+    color: rgb(236, 108, 108);
+    align-self: center;
+}
+
+
+.active:nth-child(1){
+    animation-delay: 0.2s;
+
+}
+.active:nth-child(2){
+    animation-delay: 0.5s;
+
+}
+.active:nth-child(3){
+    animation-delay: 0.3s;
+
+}
+.active:nth-child(4){
+    animation-delay: 0s;
+
+}
+
+.active{
+    animation: test 1s linear forwards;
+}
+@keyframes test {
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.svgContainer::after{
+    bottom: 0;
+    border-bottom: 5vh solid #1d1d1d;
+    border-right: 150vw solid transparent;
+    animation: heightChangeBottom 8s infinite ease-in-out;
+
+}
+.svgContainer::before{
+    top: 0;
+    border-top: 5vh solid #1d1d1d;
+    border-right: 150vw solid transparent;
+    animation: heightChangeTop 8s infinite ease-in-out;
+}
+.svgContainer::before,.svgContainer::after{
+    position: absolute;
+    content: ''; 
+    right: 0;
+}
+
+@keyframes heightChangeTop {
+    0%{
+        border-top: 5vh solid #1d1d1d;
+
+    }
+    35%{
+        border-top: 3vh solid #1d1d1d;
+
+    }
+    50%{
+        border-top: 3vh solid #1d1d1d;
+
+    }
+    85%{
+        border-top: 5vh solid #1d1d1d;
+
+    }
+    100%{
+        border-top: 5vh solid #1d1d1d;
+
+    }
+}
+@keyframes heightChangeBottom {
+    0%{
+        border-bottom: 5vh solid #1d1d1d;
+
+    }
+    35%{
+        border-bottom: 3vh solid #1d1d1d;
+
+    }
+    50%{
+        border-bottom: 3vh solid #1d1d1d;
+
+    }
+    85%{
+        border-bottom: 5vh solid #1d1d1d;
+
+    }
+    100%{
+        border-bottom: 5vh solid #1d1d1d;
+
+    }
+}
+@media screen and (max-width: 700px) {
+ .svgContainer{
+    grid-gap: 0;
+ }
+ .bigSvg{
+    display: none;
+ }
+}
