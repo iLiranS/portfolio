@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import styles from './Bubble.module.css';
 
 const smallVersion = document.documentElement.clientWidth <= 700 
@@ -19,19 +19,20 @@ const Bubble = props =>{
 
     const fps = 30;
 
+
+
+    const updatePosition = useCallback(()=>{
+      // need to call it every frame , so 1 seconds / frames 
+      const newX = position.x + xSpeed
+      const newY = position.y+ ySpeed
+      if (newX >= maxWidth || newX <=0) { setXSpeed(prev => prev * -1)  }
+      if (newY >= maxHeight || newY <=0) { setYSpeed(prev => prev * -1)  }
+      setPosition( {x:newX , y:newY});
+    },[position , ySpeed , xSpeed])
+
   
-    const updatePosition = () =>{
-        // need to call it every frame , so 1 seconds / frames 
-        const newX = position.x + xSpeed
-        const newY = position.y+ ySpeed
-        if (newX >= maxWidth || newX <=0) { setXSpeed(prev => prev * -1)  }
-        if (newY >= maxHeight || newY <=0) { setYSpeed(prev => prev * -1)  }
-        setPosition( {x:newX , y:newY});
-
-      
-    }
-
-    const startBubble = () =>{
+ 
+    const startBubble = useCallback(()=>{
         let xVelocity = (Math.random()*2)+1;
         let yVelocity = (Math.random()*2)+1;
 
@@ -42,8 +43,8 @@ const Bubble = props =>{
         setYSpeed(yVelocity);
         updatePosition();
         setHasStarted(true);
+    },[updatePosition])
 
-    }
 
 
     useEffect(()=>{
@@ -54,7 +55,7 @@ const Bubble = props =>{
         setTimeout(() => {
             updatePosition()
         }, 1000/fps);
-    },[position,isVisible])
+    },[position,isVisible,updatePosition])
 
 
     useEffect(()=>{
@@ -63,7 +64,7 @@ const Bubble = props =>{
             startBubble();
         }
             
-    },[bubbleRef])
+    },[bubbleRef,hasStarted,startBubble])
 
 
 

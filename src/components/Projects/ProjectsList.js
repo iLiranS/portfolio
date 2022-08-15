@@ -1,11 +1,8 @@
 import styles from './ProjectsList.module.css';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import showPreview from '../../images/showSitePreview.jpg';
-import blogPreview from '../../images/blogDark.jpg';
 import { Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
-import {BsMouse2} from 'react-icons/bs'
 import React from 'react';
 
 
@@ -13,10 +10,10 @@ import React from 'react';
 const ProjectsList = props =>{
     const images = [
         'https://i.ibb.co/v3HTdvy/image.jpg',
-        showPreview,
-        blogPreview
+        'https://imgur.com/McdfoIn.jpg',
+        'https://imgur.com/RyUy3Lg.jpg'
     ]
-    const { ref, inView, entry } = useInView({
+    const { ref, inView } = useInView({
         /* Optional options */
         threshold: 0,
         
@@ -24,9 +21,7 @@ const ProjectsList = props =>{
       });
     const indicators = index => <div className={styles.indicator}><section className={styles.number}>{index + 1}</section></div>
 
-    const toProjects = () =>{
-        props.scrollTo(3);
-      }
+
 
 
     return(

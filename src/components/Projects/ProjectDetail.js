@@ -1,10 +1,12 @@
 import { Fragment, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import styles from './ProjectDetail.module.css'
+import images from "../../images/images";
+import styles from './ProjectDetail.module.css';
+
+
 
 
 const ProjectDetail = (props) =>{
-
     const params = useParams();
     const projectName = params.name;
     const data = props.data;
@@ -18,13 +20,10 @@ useEffect(()=>{
 
     const item = data[index];
     let isExist = false;
-    let images;
+    let imagesContent =''
     if (index > -1) {
-      isExist=true;
-      images = item.images
-      console.log(images);
-      images = images.map(img => <img key={Math.random()} alt="preview" src={require(`../../images/${img}`)}></img>);
-
+      isExist=true;  
+     imagesContent = images.filter(item => item.title === projectName).map(img => <img key={img.id} src={img.src} alt={'preview'}></img>)
     }
     return(
         <Fragment>
@@ -38,7 +37,7 @@ useEffect(()=>{
 
           <div className={styles.gallery}>
           <h2>Gallery :</h2>
-           {images}
+           {imagesContent}
            </div>
            
            </div>}
