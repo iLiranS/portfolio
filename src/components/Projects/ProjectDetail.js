@@ -10,6 +10,7 @@ const ProjectDetail = (props) =>{
     const data = props.data;
     const names = data.map (item => item.name);
     const index = names.indexOf(projectName);
+  
 
 useEffect(()=>{
   if (projectName) props.setProjectName(projectName);
@@ -17,7 +18,14 @@ useEffect(()=>{
 
     const item = data[index];
     let isExist = false;
-    if (index > -1) isExist=true;
+    let images;
+    if (index > -1) {
+      isExist=true;
+      images = item.images
+      console.log(images);
+      images = images.map(img => <img key={Math.random()} alt="preview" src={require(`../../images/${img}`)}></img>);
+
+    }
     return(
         <Fragment>
             {!isExist && <p>project does not exists !</p>}
@@ -30,8 +38,7 @@ useEffect(()=>{
 
           <div className={styles.gallery}>
           <h2>Gallery :</h2>
-           {item.images.map(item=>
-            <img key={Math.random()} alt="preview" src={item}></img>)}
+           {images}
            </div>
            
            </div>}

@@ -21,7 +21,6 @@ const Bubble = props =>{
 
   
     const updatePosition = () =>{
-        console.log('updated')
         // need to call it every frame , so 1 seconds / frames 
         const newX = position.x + xSpeed
         const newY = position.y+ ySpeed
