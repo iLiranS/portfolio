@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import images from "../../images/images";
+import NotFound from "../../pages/NotFoundPage";
 import styles from './ProjectDetail.module.css';
 
 
@@ -27,7 +28,7 @@ useEffect(()=>{
     }
     return(
         <Fragment>
-            {!isExist && <p>project does not exists !</p>}
+            {!isExist && <p>item does not exists</p>}
            {isExist &&<div className={styles.main}>
 
             <h2>Project name :<span> {item.name}</span></h2>
