@@ -43,6 +43,16 @@
     opacity: 0;
     bottom: 100%;
     animation-delay: 0.3s;
+
+    background: hsla(43, 84%, 85%, 1);
+
+    background: linear-gradient(90deg, hsla(43, 84%, 85%, 1) 0%, hsla(0, 77%, 67%, 1) 100%, hsla(236, 67%, 55%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(43, 84%, 85%, 1) 0%, hsla(0, 77%, 67%, 1) 100%, hsla(236, 67%, 55%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(43, 84%, 85%, 1) 0%, hsla(0, 77%, 67%, 1) 100%, hsla(236, 67%, 55%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F9E7BB", endColorstr="#EC6C6C", GradientType=1 );
 }
 span{
     color: #ec6c6c;
@@ -82,6 +92,9 @@ span{
     opacity: 0;
     bottom: 100%;
     animation-delay: 1s;
+}
+.aboutSection p{
+    font-size: 1.2rem;
 }
 
 
@@ -272,6 +285,10 @@ span{
     .astronaut{
         display: none;
     }
+    .aboutSection p{
+        font-size: 1rem;
+    }
+    
 }
 
 /* @media screen and (max-width : 1200px) {
